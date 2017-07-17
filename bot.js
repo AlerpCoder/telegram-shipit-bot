@@ -206,5 +206,9 @@ bot.onText(/\/space/, (msg) => {
 	xmlHttp.send(null);
 	json = JSON.parse(xmlHttp.responseText);
 	var isSpaceOpenString = (json.open) ? "offen" : "geschlossen";
-	bot.sendMessage(msg.chat.id, "Der Space ist " + isSpaceOpenString);
-});
+	var personInSpace = json.sensors.people_now_present[0].names;
+	var pIS = "";
+	personInSpace.forEach(function (person) { pIS += person + " ," });
+	var pISOutput = (personInSpace.length == 1) ? "Im Space befindet sich " + pIS : "Im space befinden sich " + pIS;
+	bot.sendMessage(msg.chat.id, "Der Space ist " + isSpaceOpenString + "\n" + pISOutput);
+}); 
