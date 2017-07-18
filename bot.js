@@ -216,6 +216,4 @@ bot.onText(/\/space/, (msg) => {
 	}
 	var spacePic = (json.open) ? json.state.icon.open : json.state.icon.closed;
 	bot.sendPhoto(msg.chat.id, spacePic, { caption: "Der Space ist " + isSpaceOpenString });
-	
-	
 }); 
