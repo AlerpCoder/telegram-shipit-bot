@@ -211,7 +211,7 @@ bot.onText(/\/space/, (msg) => {
 		var pIS = "";
 		var personInSpace = json.sensors.people_now_present[0].names
 		personInSpace.forEach(function (person) { pIS += person + " " });
-		pISOutput = (json.open) ? (personInSpace.length == 1) ? "\nIm Space befindet sich " + pIS : "\nIm Space befinden sich " + pIS : "";
+		pISOutput = (personInSpace.length == 1) ? "\nIm Space befindet sich " + pIS : "\nIm Space befinden sich " + pIS;
 		isSpaceOpenString += pISOutput;
 	}
 	var spacePic = (json.open) ? json.state.icon.open : json.state.icon.closed;
